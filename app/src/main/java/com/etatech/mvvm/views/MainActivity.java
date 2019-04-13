@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.prog_bar);
         actionButton = findViewById(R.id.fab);
-        places = viewModel.getPlaces().getValue();
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         viewModel.init();
@@ -45,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 placeAdapter.notifyDataSetChanged();
             }
         });
+
+
+        places = viewModel.getPlaces().getValue();
 
         recyclerView= findViewById(R.id.places_rv);
         placeAdapter = new PlaceAdapter(places,this);
