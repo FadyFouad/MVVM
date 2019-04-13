@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         places = viewModel.getPlaces().getValue();
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        viewModel.init();
         viewModel.getPlaces().observe(this, new Observer<List<Place>>() {
             @Override
             public void onChanged(@Nullable List<Place> places) {
